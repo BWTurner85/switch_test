@@ -1,0 +1,28 @@
+<!--
+ PHPUnit configuration file that sets up phpunit options
+ -->
+<phpunit bootstrap="bootstrap.php"
+         backupGlobals="false"
+         verbose="true"
+         colors="true">
+
+    <testsuites>
+        <!-- Unit test suite that tests small pieces of functionality in isolation (or close to it) -->
+        <testsuite name="Plain PHP Unit Test Suite">
+            <directory>./unit</directory>
+        </testsuite>
+
+        <!-- Integration test suite that tests larget pieces of functionality -->
+        <testsuite name="Integration Test Suite">
+            <directory>./integration</directory>
+        </testsuite>
+    </testsuites>
+
+    <!-- Define which files to cover if coverage is enabled -->
+    <filter>
+        <whitelist addUncoveredFilesFromWhitelist="q">
+            <directory suffix=".php">../app/Acme</directory>
+        </whitelist>
+    </filter>
+
+</phpunit>
